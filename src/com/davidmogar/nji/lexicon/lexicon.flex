@@ -3,7 +3,7 @@ package com.davidmogar.nji.lexicon;
 import com.davidmogar.nji.syntactic.Parser;
 
 %%
-%debug
+
 %byaccj
 %line
 %column
