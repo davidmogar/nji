@@ -7,7 +7,7 @@ public class Context {
 
     private static final short STACK_SIZE = 2 * 1024; // 2Kb
 
-    public Map<String, Byte> tags;
+    public Map<String, Short> tags;
     public Stack stack;
 
     public short basePointer;
@@ -19,6 +19,7 @@ public class Context {
         stack = new Stack(STACK_SIZE);
 
         basePointer = STACK_SIZE - 1;
+        instructionPointer = 0;
         stackPointer = basePointer;
     }
 

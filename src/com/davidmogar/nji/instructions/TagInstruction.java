@@ -14,4 +14,9 @@ public class TagInstruction implements Instruction {
     public void execute(Context context) {
 
     }
+
+    public String getName() {
+        return name;
+    }
+
 }
