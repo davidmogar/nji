@@ -5,20 +5,20 @@ import java.util.Map;
 
 public class Context {
 
-    private static final short STACK_SIZE = 2 * 1024; // 2Kb
+    private static final short STACK_SIZE = 1 * 1024; // 2Kb
 
     public Map<String, Short> tags;
     public Stack stack;
 
-    public short basePointer;
-    public short instructionPointer;
-    public short stackPointer;
+    public int basePointer;
+    public int instructionPointer;
+    public int stackPointer;
 
     public Context() {
         tags = new HashMap<>();
         stack = new Stack(STACK_SIZE);
 
-        basePointer = STACK_SIZE - 1;
+        basePointer = STACK_SIZE;
         instructionPointer = 0;
         stackPointer = basePointer;
     }

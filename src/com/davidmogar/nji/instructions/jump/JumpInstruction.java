@@ -13,7 +13,7 @@ public class JumpInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
-
+        context.instructionPointer = context.tags.get(tag);
     }
 
 }

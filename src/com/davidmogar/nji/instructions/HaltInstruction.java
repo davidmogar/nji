@@ -6,7 +6,7 @@ public class HaltInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
-
+        System.exit(-1);
     }
 
 }

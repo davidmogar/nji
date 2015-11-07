@@ -7,7 +7,10 @@ public class ByteToIntegerInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
-
+        byte value = context.stack.getByte(context.stackPointer);
+        context.stackPointer -= 1;
+        context.stack.setInteger(value, context.stackPointer);
+        context.instructionPointer++;
     }
 
 }

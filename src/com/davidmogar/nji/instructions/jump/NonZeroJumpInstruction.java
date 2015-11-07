@@ -13,7 +13,14 @@ public class NonZeroJumpInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
+        int value = context.stack.getInteger(context.stackPointer);
+        context.stackPointer += 2;
 
+        if (value != 0) {
+            context.instructionPointer = context.tags.get(tag);
+        } else {
+            context.instructionPointer++;
+        }
     }
     
 }

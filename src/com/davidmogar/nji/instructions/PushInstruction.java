@@ -1,6 +1,7 @@
 package com.davidmogar.nji.instructions;
 
 import com.davidmogar.nji.Context;
+import com.davidmogar.nji.instructions.Instruction;
 
 public class PushInstruction implements Instruction {
 
@@ -19,17 +20,25 @@ public class PushInstruction implements Instruction {
     @Override
     public void execute(Context context) {
         switch (suffix) {
-            case 'a':
-                break;
             case 'b':
+                context.stackPointer -= 1;
+                context.stack.setByte((byte) value, context.stackPointer);
                 break;
             case 'i':
+                context.stackPointer -= 2;
+                context.stack.setInteger((int) value, context.stackPointer);
                 break;
             case 'f':
+                context.stackPointer -= 4;
+                context.stack.setFloat(value, context.stackPointer);
                 break;
             case Character.MIN_VALUE: // BP
+                context.stackPointer -= 2;
+                context.stack.setInteger(context.basePointer, context.stackPointer);
                 break;
         }
+
+        context.instructionPointer++;
     }
 
 }

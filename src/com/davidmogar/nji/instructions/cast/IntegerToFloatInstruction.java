@@ -7,7 +7,10 @@ public class IntegerToFloatInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
-
+        int value = context.stack.getInteger(context.stackPointer);
+        context.stackPointer -= 2;
+        context.stack.setFloat(value, context.stackPointer);
+        context.instructionPointer++;
     }
 
 }

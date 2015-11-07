@@ -15,12 +15,26 @@ public class MulInstruction implements Instruction {
     public void execute(Context context) {
         switch (suffix) {
             case 'b':
+                byte b1 = context.stack.getByte(context.stackPointer);
+                context.stackPointer += 1;
+                byte b2 = context.stack.getByte(context.stackPointer);
+                context.stack.setInteger(b1 * b2, context.stackPointer);
                 break;
             case 'i':
+                int i1 = context.stack.getInteger(context.stackPointer);
+                context.stackPointer += 2;
+                int i2 = context.stack.getInteger(context.stackPointer);
+                context.stack.setInteger(i1 * i2, context.stackPointer);
                 break;
             case 'f':
+                float f1 = context.stack.getFloat(context.stackPointer);
+                context.stackPointer += 4;
+                float f2 = context.stack.getFloat(context.stackPointer);
+                context.stack.setFloat(f1 * f2, context.stackPointer);
                 break;
         }
+
+        context.instructionPointer++;
     }
 
 }

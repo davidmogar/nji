@@ -137,7 +137,7 @@ logic:          AND { $$ = new LogicInstruction(LogicInstruction.Operation.AND);
 
 push:           PUSH BP { $$ = new PushInstruction(); }
                 | PUSH INTEGER { $$ = new PushInstruction('i', (int) $2); }
-                | PUSHA INTEGER { $$ = new PushInstruction('a', (int) $2); }
+                | PUSHA INTEGER { $$ = new PushInstruction('i', (int) $2); }
                 | PUSHB INTEGER { $$ = new PushInstruction('b', (int) $2); }
                 | PUSHI INTEGER { $$ = new PushInstruction('i', (int) $2); }
                 | PUSHF FLOAT { $$ = new PushInstruction('f', (float) $2); }

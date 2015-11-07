@@ -12,7 +12,8 @@ public class EnterInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
-
+        context.instructionPointer++;
+        context.stackPointer -= size;
     }
 
 }
