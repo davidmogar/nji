@@ -1,6 +1,5 @@
 %{
 
-import com.davidmogar.nji.Program;
 import com.davidmogar.nji.lexicon.Lexicon;
 import com.davidmogar.nji.instructions.*;
 import com.davidmogar.nji.instructions.arithmetic.*;
@@ -26,16 +25,16 @@ import java.util.*;
 
 %%
 
-program:        instructions { program = new Program((List<Instruction>) $1); } ;
+program:        instructions { instructions = (List<Instruction>) $1; } ;
 
 instructions:   instruction {
                         List<Instruction> instructions = new ArrayList<>();
-                        instructions.add((Instruction)$1);
+                        instructions.add((Instruction) $1);
                         $$ = instructions;
                     }
                 | instructions instruction {
-                        List<Instruction> instructions = (List<Instruction>)$1;
-                        instructions.add((Instruction)$2);
+                        List<Instruction> instructions = (List<Instruction>) $1;
+                        instructions.add((Instruction) $2);
                         $$ = instructions;
                     }
                 ;
@@ -49,11 +48,11 @@ instruction:    arithmetic { $$ = $1; }
                 | logic { $$ = $1; }
                 | push { $$ = $1; }
                 | store { $$ = $1; }
-                | CALL TAG  { $$ = new CallInstruction((String)$2); }
-                | ENTER INTEGER { $$ = new EnterInstruction((int)$2); }
+                | CALL TAG  { $$ = new CallInstruction((String) $2); }
+                | ENTER INTEGER { $$ = new EnterInstruction((int) $2); }
                 | HALT { $$ = new HaltInstruction(); }
-                | RET INTEGER INTEGER INTEGER { $$ = new RetInstruction((int)$2, (int)$3, (int)$4); }
-                | TAG { $$ = new TagInstruction((String)$1); }
+                | RET INTEGER INTEGER INTEGER { $$ = new RetInstruction((int) $2, (int) $3, (int) $4); }
+                | TAG { $$ = new TagInstruction((String) $1); }
                 ;
 
 arithmetic:     ADD { $$ = new AddInstruction('i'); }
@@ -120,9 +119,9 @@ inout:          IN { $$ = new InInstruction('i'); }
                 | OUTF { $$ = new OutInstruction('f'); }
                 ;
 
-jump:           JMP TAG { $$ = new JumpInstruction((String)$2); }
-                | JNZ TAG { $$ = new NonZeroJumpInstruction((String)$2); }
-                | JZ TAG { $$ = new ZeroJumpInstruction((String)$2); }
+jump:           JMP TAG { $$ = new JumpInstruction((String) $2); }
+                | JNZ TAG { $$ = new NonZeroJumpInstruction((String) $2); }
+                | JZ TAG { $$ = new ZeroJumpInstruction((String) $2); }
                 ;
 
 load:          LOAD { $$ = new LoadInstruction('i'); }
@@ -154,7 +153,7 @@ store:          STORE { $$ = new StoreInstruction('i'); }
 
 private Lexicon lexicon;
 
-public Program program;
+public List<Instruction> instructions;
 
 public void yyerror(String error) {
  System.err.println(error + lexicon.getLine());

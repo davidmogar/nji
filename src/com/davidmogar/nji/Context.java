@@ -7,12 +7,12 @@ public class Context {
 
     private static final short STACK_SIZE = 2 * 1024; // 2Kb
 
-    private Map<String, Byte> tags;
-    private Stack stack;
+    public Map<String, Byte> tags;
+    public Stack stack;
 
-    private short basePointer;
-    private short instructionPointer;
-    private short stackPointer;
+    public short basePointer;
+    public short instructionPointer;
+    public short stackPointer;
 
     public Context() {
         tags = new HashMap<>();
