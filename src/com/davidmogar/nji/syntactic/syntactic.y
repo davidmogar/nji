@@ -49,11 +49,11 @@ instruction:    arithmetic { $$ = $1; }
                 | logic { $$ = $1; }
                 | push { $$ = $1; }
                 | store { $$ = $1; }
-                | CALL TAG  { $$ = new CallInstruction(); }
-                | ENTER INTEGER { $$ = new EnterInstruction(); }
+                | CALL TAG  { $$ = new CallInstruction((String)$2); }
+                | ENTER INTEGER { $$ = new EnterInstruction((int)$2); }
                 | HALT { $$ = new HaltInstruction(); }
-                | RET INTEGER INTEGER INTEGER { $$ = new RetInstruction(); }
-                | TAG { $$ = new TagInstruction(); }
+                | RET INTEGER INTEGER INTEGER { $$ = new RetInstruction((int)$2, (int)$3, (int)$4); }
+                | TAG { $$ = new TagInstruction((String)$1); }
                 ;
 
 arithmetic:     ADD { $$ = new AddInstruction('i'); }
@@ -120,9 +120,9 @@ inout:          IN { $$ = new InInstruction('i'); }
                 | OUTF { $$ = new OutInstruction('f'); }
                 ;
 
-jump:           JMP TAG { $$ = new UnconditionalJumpInstruction(); }
-                | JNZ TAG { $$ = new ConditionalJumpInstruction(ConditionalJumpInstruction.Operation.JNZ); }
-                | JZ TAG { $$ = new ConditionalJumpInstruction(ConditionalJumpInstruction.Operation.JZ); }
+jump:           JMP TAG { $$ = new JumpInstruction((String)$2); }
+                | JNZ TAG { $$ = new NonZeroJumpInstruction((String)$2); }
+                | JZ TAG { $$ = new ZeroJumpInstruction((String)$2); }
                 ;
 
 load:          LOAD { $$ = new LoadInstruction('i'); }
@@ -137,10 +137,10 @@ logic:          AND { $$ = new LogicInstruction(LogicInstruction.Operation.AND);
                 ;
 
 push:           PUSH BP { $$ = new PushInstruction(); }
-                | PUSH INTEGER { $$ = new PushInstruction('i', (float) $2); }
-                | PUSHA INTEGER { $$ = new PushInstruction('a', (float) $2); }
-                | PUSHB INTEGER { $$ = new PushInstruction('b', (float) $2); }
-                | PUSHI INTEGER { $$ = new PushInstruction('i', (float) $2); }
+                | PUSH INTEGER { $$ = new PushInstruction('i', (int) $2); }
+                | PUSHA INTEGER { $$ = new PushInstruction('a', (int) $2); }
+                | PUSHB INTEGER { $$ = new PushInstruction('b', (int) $2); }
+                | PUSHI INTEGER { $$ = new PushInstruction('i', (int) $2); }
                 | PUSHF FLOAT { $$ = new PushInstruction('f', (float) $2); }
                 ;
 

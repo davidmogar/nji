@@ -48,7 +48,7 @@ Tag = {Letter}({Letter} | {Digit})*
 "," | ":" | {Comment} | {BreakLine} | {Directives} | [ \t\f] {}
 
 "bp"		{ matchedValue = yytext(); return Parser.BP; }
-{Integer}	{ matchedValue = Float.parseFloat(yytext()); return Parser.INTEGER; }
+{Integer}	{ matchedValue = Integer.parseInt(yytext()); return Parser.INTEGER; }
 {Float}		{ matchedValue = Float.parseFloat(yytext()); return Parser.FLOAT; }
 {String}	{ matchedValue = Float.parseFloat(yytext()); return Parser.STRING; }
 
