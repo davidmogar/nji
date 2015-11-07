@@ -28,5 +28,6 @@ public class Main {
         Lexicon lexicon = new Lexicon(fileReader);
         Parser parser = new Parser(lexicon);
         parser.run();
+        System.out.println("fin");
     }
 }
