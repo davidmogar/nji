@@ -1,56 +1,37 @@
-#source "program.nj"
+#source "example_one.nj"
 
 call main
 halt
 
-f:
-	enter 0
-#line 4
-	'	Writing
-	pushb 110
-	pushb 92
-	pushb 97
-	pushb 108
-	pushb 111
-	pushb 104
-	outb
-	outb
-	outb
-	outb
-	outb
-	outb
-	ret 0, 0, 0
 main:
 	enter 54
-#line 9
+#line 4
 	'	double valor (offset -4)
-#line 10
+#line 5
 	'	int i (offset -6)
 	'	int j (offset -8)
-#line 11
+#line 6
 	'	Array w (offset -48)
-#line 12
+#line 7
 	'	int dia (offset -50)
-#line 13
+#line 8
 	'	int mes (offset -52)
 	'	int anio (offset -54)
-#line 14
-	call f
-#line 16
+#line 10
 	'	Reading
 	push bp
 	pushi -50
 	addi
 	ini
 	storei
-#line 17
+#line 11
 	push bp
 	pushi -54
 	addi
 	pushb 97
 	b2i
 	storei
-#line 18
+#line 12
 	push bp
 	pushi -52
 	addi
@@ -68,7 +49,7 @@ main:
 	pushi 1
 	addi
 	storei
-#line 19
+#line 13
 	'	Writing
 	push bp
 	pushi -50
@@ -97,20 +78,20 @@ main:
 	'	Writing
 	pushb 10
 	outb
-#line 21
+#line 15
 	'	Reading
 	push bp
 	pushi -4
 	addi
 	inf
 	storef
-#line 23
+#line 17
 	push bp
 	pushi -6
 	addi
 	pushi 0
 	storei
-#line 32
+#line 26
 tag0:
 	push bp
 	pushi -6
@@ -119,7 +100,7 @@ tag0:
 	pushi 10
 	lti
 	jz tag1
-#line 25
+#line 19
 	pusha 0
 	push bp
 	pushi -6
@@ -133,7 +114,7 @@ tag0:
 	addi
 	loadf
 	storef
-#line 26
+#line 20
 	'	Writing
 	push bp
 	pushi -6
@@ -157,7 +138,7 @@ tag0:
 	'	Writing
 	pushb 32
 	outb
-#line 30
+#line 24
 	push bp
 	pushi -6
 	addi
@@ -165,7 +146,7 @@ tag0:
 	pushi 2
 	modi
 	jz tag2
-#line 28
+#line 22
 	'	Writing
 	pushb 105
 	outb
@@ -186,7 +167,7 @@ tag0:
 	outb
 	jmp tag3
 tag2:
-#line 30
+#line 24
 	'	Writing
 	pushb 112
 	outb
@@ -200,7 +181,7 @@ tag2:
 	pushb 10
 	outb
 tag3:
-#line 31
+#line 25
 	push bp
 	pushi -6
 	addi
@@ -213,17 +194,17 @@ tag3:
 	storei
 	jmp tag0
 tag1:
-#line 33
+#line 27
 	'	Writing
 	pushb 10
 	outb
-#line 35
+#line 29
 	push bp
 	pushi -6
 	addi
 	pushi 0
 	storei
-#line 45
+#line 39
 tag4:
 	push bp
 	pushi -6
@@ -232,13 +213,13 @@ tag4:
 	pushi 4
 	lti
 	jz tag5
-#line 37
+#line 31
 	push bp
 	pushi -8
 	addi
 	pushi 0
 	storei
-#line 42
+#line 36
 tag6:
 	push bp
 	pushi -8
@@ -247,7 +228,7 @@ tag6:
 	pushi 5
 	lti
 	jz tag7
-#line 39
+#line 33
 	push bp
 	pushi -48
 	addi
@@ -275,7 +256,7 @@ tag6:
 	loadi
 	addi
 	storei
-#line 40
+#line 34
 	'	Writing
 	push bp
 	pushi -48
@@ -299,7 +280,7 @@ tag6:
 	'	Writing
 	pushb 32
 	outb
-#line 41
+#line 35
 	push bp
 	pushi -8
 	addi
@@ -312,11 +293,11 @@ tag6:
 	storei
 	jmp tag6
 tag7:
-#line 43
+#line 37
 	'	Writing
 	pushb 10
 	outb
-#line 44
+#line 38
 	push bp
 	pushi -6
 	addi

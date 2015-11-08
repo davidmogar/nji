@@ -16,6 +16,7 @@ public class RetInstruction implements Instruction {
 
     @Override
     public void execute(Context context) {
+        context.stackPointer += returnOffset + localVariablesOffset + parametersOffset;
         context.basePointer = context.stack.getInteger(context.stackPointer);
         context.stackPointer += 2;
         context.instructionPointer = context.stack.getInteger(context.stackPointer);
