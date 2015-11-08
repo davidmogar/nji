@@ -1,0 +1,332 @@
+#source "program.nj"
+
+call main
+halt
+
+f:
+	enter 0
+#line 4
+	'	Writing
+	pushb 110
+	pushb 92
+	pushb 97
+	pushb 108
+	pushb 111
+	pushb 104
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	ret 0, 0, 0
+main:
+	enter 54
+#line 9
+	'	double valor (offset -4)
+#line 10
+	'	int i (offset -6)
+	'	int j (offset -8)
+#line 11
+	'	Array w (offset -48)
+#line 12
+	'	int dia (offset -50)
+#line 13
+	'	int mes (offset -52)
+	'	int anio (offset -54)
+#line 14
+	call f
+#line 16
+	'	Reading
+	push bp
+	pushi -50
+	addi
+	ini
+	storei
+#line 17
+	push bp
+	pushi -54
+	addi
+	pushb 97
+	b2i
+	storei
+#line 18
+	push bp
+	pushi -52
+	addi
+	push bp
+	pushi -50
+	addi
+	loadi
+	push bp
+	pushi -54
+	addi
+	loadi
+	muli
+	pushi 12
+	modi
+	pushi 1
+	addi
+	storei
+#line 19
+	'	Writing
+	push bp
+	pushi -50
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 10
+	outb
+	'	Writing
+	push bp
+	pushi -52
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 10
+	outb
+	'	Writing
+	push bp
+	pushi -54
+	addi
+	loadi
+	i2f
+	outf
+	'	Writing
+	pushb 10
+	outb
+#line 21
+	'	Reading
+	push bp
+	pushi -4
+	addi
+	inf
+	storef
+#line 23
+	push bp
+	pushi -6
+	addi
+	pushi 0
+	storei
+#line 32
+tag0:
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	lti
+	jz tag1
+#line 25
+	pusha 0
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	push bp
+	pushi -4
+	addi
+	loadf
+	storef
+#line 26
+	'	Writing
+	push bp
+	pushi -6
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 58
+	outb
+	'	Writing
+	pusha 0
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	loadf
+	outf
+	'	Writing
+	pushb 32
+	outb
+#line 30
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 2
+	modi
+	jz tag2
+#line 28
+	'	Writing
+	pushb 105
+	outb
+	'	Writing
+	pushb 109
+	outb
+	'	Writing
+	pushb 112
+	outb
+	'	Writing
+	pushb 97
+	outb
+	'	Writing
+	pushb 114
+	outb
+	'	Writing
+	pushb 10
+	outb
+	jmp tag3
+tag2:
+#line 30
+	'	Writing
+	pushb 112
+	outb
+	'	Writing
+	pushb 97
+	outb
+	'	Writing
+	pushb 114
+	outb
+	'	Writing
+	pushb 10
+	outb
+tag3:
+#line 31
+	push bp
+	pushi -6
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag0
+tag1:
+#line 33
+	'	Writing
+	pushb 10
+	outb
+#line 35
+	push bp
+	pushi -6
+	addi
+	pushi 0
+	storei
+#line 45
+tag4:
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	lti
+	jz tag5
+#line 37
+	push bp
+	pushi -8
+	addi
+	pushi 0
+	storei
+#line 42
+tag6:
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 5
+	lti
+	jz tag7
+#line 39
+	push bp
+	pushi -48
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	muli
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	push bp
+	pushi -8
+	addi
+	loadi
+	addi
+	storei
+#line 40
+	'	Writing
+	push bp
+	pushi -48
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	muli
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 32
+	outb
+#line 41
+	push bp
+	pushi -8
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag6
+tag7:
+#line 43
+	'	Writing
+	pushb 10
+	outb
+#line 44
+	push bp
+	pushi -6
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag4
+tag5:
+	ret 0, 54, 0
