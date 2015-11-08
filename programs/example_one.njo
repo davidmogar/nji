@@ -1,0 +1,313 @@
+#source "example_one.nj"
+
+call main
+halt
+
+main:
+	enter 54
+#line 8
+	'	double valor (offset -4)
+#line 9
+	'	int i (offset -6)
+	'	int j (offset -8)
+#line 10
+	'	Array w (offset -48)
+#line 11
+	'	int dia (offset -50)
+#line 12
+	'	int mes (offset -52)
+	'	int anio (offset -54)
+#line 14
+	'	Reading
+	push bp
+	pushi -50
+	addi
+	ini
+	storei
+#line 15
+	push bp
+	pushi -54
+	addi
+	pushb 97
+	b2i
+	storei
+#line 16
+	push bp
+	pushi -52
+	addi
+	push bp
+	pushi -50
+	addi
+	loadi
+	push bp
+	pushi -54
+	addi
+	loadi
+	muli
+	pushi 12
+	modi
+	pushi 1
+	addi
+	storei
+#line 17
+	'	Writing
+	push bp
+	pushi -50
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 10
+	outb
+	'	Writing
+	push bp
+	pushi -52
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 10
+	outb
+	'	Writing
+	push bp
+	pushi -54
+	addi
+	loadi
+	i2f
+	outf
+	'	Writing
+	pushb 10
+	outb
+#line 19
+	'	Reading
+	push bp
+	pushi -4
+	addi
+	inf
+	storef
+#line 21
+	push bp
+	pushi -6
+	addi
+	pushi 0
+	storei
+#line 30
+tag0:
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	lti
+	jz tag1
+#line 23
+	pusha 0
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	push bp
+	pushi -4
+	addi
+	loadf
+	storef
+#line 24
+	'	Writing
+	push bp
+	pushi -6
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 58
+	outb
+	'	Writing
+	pusha 0
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	loadf
+	outf
+	'	Writing
+	pushb 32
+	outb
+#line 28
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 2
+	modi
+	jz tag2
+#line 26
+	'	Writing
+	pushb 105
+	outb
+	'	Writing
+	pushb 109
+	outb
+	'	Writing
+	pushb 112
+	outb
+	'	Writing
+	pushb 97
+	outb
+	'	Writing
+	pushb 114
+	outb
+	'	Writing
+	pushb 10
+	outb
+	jmp tag3
+tag2:
+#line 28
+	'	Writing
+	pushb 112
+	outb
+	'	Writing
+	pushb 97
+	outb
+	'	Writing
+	pushb 114
+	outb
+	'	Writing
+	pushb 10
+	outb
+tag3:
+#line 29
+	push bp
+	pushi -6
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag0
+tag1:
+#line 31
+	'	Writing
+	pushb 10
+	outb
+#line 33
+	push bp
+	pushi -6
+	addi
+	pushi 0
+	storei
+#line 43
+tag4:
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 4
+	lti
+	jz tag5
+#line 35
+	push bp
+	pushi -8
+	addi
+	pushi 0
+	storei
+#line 40
+tag6:
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 5
+	lti
+	jz tag7
+#line 37
+	push bp
+	pushi -48
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	muli
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	push bp
+	pushi -8
+	addi
+	loadi
+	addi
+	storei
+#line 38
+	'	Writing
+	push bp
+	pushi -48
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 10
+	muli
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 32
+	outb
+#line 39
+	push bp
+	pushi -8
+	addi
+	push bp
+	pushi -8
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag6
+tag7:
+#line 41
+	'	Writing
+	pushb 10
+	outb
+#line 42
+	push bp
+	pushi -6
+	addi
+	push bp
+	pushi -6
+	addi
+	loadi
+	pushi 1
+	addi
+	storei
+	jmp tag4
+tag5:
+	ret 0, 54, 0

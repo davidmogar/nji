@@ -1,0 +1,138 @@
+#source "example_four.nj"
+
+call main
+halt
+
+main:
+	enter 2
+#line 6
+	'	int i (offset -2)
+#line 8
+	'	Writing
+	pushb 10
+	pushb 100
+	pushb 101
+	pushb 116
+	pushb 97
+	pushb 118
+	pushb 105
+	pushb 116
+	pushb 99
+	pushb 97
+	pushb 32
+	pushb 98
+	pushb 109
+	pushb 111
+	pushb 66
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+#line 9
+	'	Writing
+	pushb 10
+	pushb 46
+	pushb 46
+	pushb 46
+	pushb 110
+	pushb 119
+	pushb 111
+	pushb 100
+	pushb 116
+	pushb 110
+	pushb 117
+	pushb 111
+	pushb 99
+	pushb 32
+	pushb 103
+	pushb 110
+	pushb 105
+	pushb 116
+	pushb 114
+	pushb 97
+	pushb 116
+	pushb 83
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+	outb
+#line 11
+	push bp
+	pushi -2
+	addi
+	pushi 10
+	storei
+#line 15
+tag0:
+	push bp
+	pushi -2
+	addi
+	loadi
+	pushi 0
+	gti
+	jz tag1
+#line 13
+	'	Writing
+	push bp
+	pushi -2
+	addi
+	loadi
+	outi
+	'	Writing
+	pushb 10
+	outb
+#line 14
+	push bp
+	pushi -2
+	addi
+	push bp
+	pushi -2
+	addi
+	loadi
+	pushi 1
+	subi
+	storei
+	jmp tag0
+tag1:
+#line 17
+	'	Writing
+	pushb 33
+	pushb 77
+	pushb 79
+	pushb 79
+	pushb 66
+	outb
+	outb
+	outb
+	outb
+	outb
+	ret 0, 2, 0

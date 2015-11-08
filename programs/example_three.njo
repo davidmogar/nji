@@ -1,0 +1,27 @@
+#source "example_three.nj"
+
+call main
+halt
+
+addTwo:
+	enter 0
+	'	int value (offset 4)
+#line 6
+	push bp
+	pushi 4
+	addi
+	loadi
+	pushi 2
+	addi
+	ret 2, 0, 2
+main:
+	enter 0
+#line 10
+	'	Writing
+	pushi 1
+	call addTwo
+	pushi 2
+	call addTwo
+	addi
+	outi
+	ret 0, 0, 0

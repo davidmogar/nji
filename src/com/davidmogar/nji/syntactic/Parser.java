@@ -804,19 +804,19 @@ case 33:
 break;
 case 34:
 //#line 74 "../src/com/davidmogar/nji/syntactic/syntactic.y"
-{ yyval = new MulInstruction('i'); }
+{ yyval = new SubInstruction('i'); }
 break;
 case 35:
 //#line 75 "../src/com/davidmogar/nji/syntactic/syntactic.y"
-{ yyval = new MulInstruction('b'); }
+{ yyval = new SubInstruction('b'); }
 break;
 case 36:
 //#line 76 "../src/com/davidmogar/nji/syntactic/syntactic.y"
-{ yyval = new MulInstruction('i'); }
+{ yyval = new SubInstruction('i'); }
 break;
 case 37:
 //#line 77 "../src/com/davidmogar/nji/syntactic/syntactic.y"
-{ yyval = new MulInstruction('f'); }
+{ yyval = new SubInstruction('f'); }
 break;
 case 38:
 //#line 80 "../src/com/davidmogar/nji/syntactic/syntactic.y"

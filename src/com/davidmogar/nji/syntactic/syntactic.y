@@ -71,10 +71,10 @@ arithmetic:     ADD { $$ = new AddInstruction('i'); }
                 | MULB { $$ = new MulInstruction('b'); }
                 | MULI { $$ = new MulInstruction('i'); }
                 | MULF { $$ = new MulInstruction('f'); }
-                | SUB { $$ = new MulInstruction('i'); }
-                | SUBB { $$ = new MulInstruction('b'); }
-                | SUBI { $$ = new MulInstruction('i'); }
-                | SUBF { $$ = new MulInstruction('f'); }
+                | SUB { $$ = new SubInstruction('i'); }
+                | SUBB { $$ = new SubInstruction('b'); }
+                | SUBI { $$ = new SubInstruction('i'); }
+                | SUBF { $$ = new SubInstruction('f'); }
                 ;
 
 cast:           B2I { $$ = new ByteToIntegerInstruction(); }

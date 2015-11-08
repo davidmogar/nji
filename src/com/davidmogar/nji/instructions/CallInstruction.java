@@ -22,7 +22,7 @@ public class CallInstruction implements Instruction {
         context.stack.setInteger(context.basePointer, context.stackPointer);
 
         /* Update instruction and stack pointer */
-        context.basePointer -= 4;
+        context.basePointer = context.stackPointer;
         context.instructionPointer = context.tags.get(tag);
     }
 
