@@ -18,11 +18,11 @@ public class RetInstruction implements Instruction {
     public void execute(Context context) {
         float value = readReturnedValue(context);
 
-        context.stackPointer += returnOffset + localVariablesOffset + parametersOffset;
+        context.stackPointer += returnOffset + localVariablesOffset;
         context.basePointer = context.stack.getInteger(context.stackPointer);
         context.stackPointer += 2;
         context.instructionPointer = context.stack.getInteger(context.stackPointer);
-        context.stackPointer += 2 - returnOffset;
+        context.stackPointer += 2 - returnOffset + parametersOffset;
 
         writeReturnedValue(value, context);
     }
