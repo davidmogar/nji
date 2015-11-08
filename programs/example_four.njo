@@ -5,9 +5,9 @@ halt
 
 main:
 	enter 2
-#line 4
-	'	int i (offset -2)
 #line 6
+	'	int i (offset -2)
+#line 8
 	'	Writing
 	pushb 10
 	pushb 100
@@ -39,7 +39,7 @@ main:
 	outb
 	outb
 	outb
-#line 7
+#line 9
 	'	Writing
 	pushb 10
 	pushb 46
@@ -85,13 +85,13 @@ main:
 	outb
 	outb
 	outb
-#line 9
+#line 11
 	push bp
 	pushi -2
 	addi
 	pushi 10
 	storei
-#line 13
+#line 15
 tag0:
 	push bp
 	pushi -2
@@ -100,7 +100,7 @@ tag0:
 	pushi 0
 	gti
 	jz tag1
-#line 11
+#line 13
 	'	Writing
 	push bp
 	pushi -2
@@ -110,7 +110,7 @@ tag0:
 	'	Writing
 	pushb 10
 	outb
-#line 12
+#line 14
 	push bp
 	pushi -2
 	addi
@@ -123,7 +123,7 @@ tag0:
 	storei
 	jmp tag0
 tag1:
-#line 15
+#line 17
 	'	Writing
 	pushb 33
 	pushb 77

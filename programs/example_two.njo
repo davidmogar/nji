@@ -5,17 +5,17 @@ halt
 
 getFirstValue:
 	enter 0
-#line 4
+#line 6
 	pushi 2
 	ret 2, 0, 0
 getSecondValue:
 	enter 0
-#line 8
+#line 10
 	pushi 3
 	ret 2, 0, 0
 main:
 	enter 0
-#line 12
+#line 14
 	'	Writing
 	call getFirstValue
 	call getSecondValue
