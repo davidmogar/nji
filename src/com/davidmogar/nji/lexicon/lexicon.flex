@@ -37,7 +37,7 @@ Digit = [0-9]
 Directives = ("#line" | "#source").*
 Integer = -?{Digit}+
 Float = ({Integer}\.{Digit}+ | {Integer})
-Letter = [a-z]
+Letter = [a-zA-Z]
 String = \"~\"
 Tag = {Letter}({Letter} | {Digit})*
 

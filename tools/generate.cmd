@@ -5,4 +5,3 @@ pause
 byaccj\yacc.exe -J -v -Jpackage=com.davidmogar.nji.syntactic -Jsemantic=Object "../src/com/davidmogar/nji/syntactic/syntactic.y"
 move Parser.java ../src/com/davidmogar/nji/syntactic
 move y.output byaccj
-pause
